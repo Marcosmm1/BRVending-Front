@@ -20,14 +20,6 @@ export default {
       search: true
     };
   },
-  computed: {
-    select() {
-      return this.$route.path === "/events" ? "select" : "";
-    },
-    select2() {
-      return this.$route.path === "/expanded" ? "select" : "";
-    }
-  },
   components: {
     Footer,
     Navbar

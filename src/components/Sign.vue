@@ -1,6 +1,5 @@
 <template>
-  <v-card width="300px" outlined>
-    <v-card-title class="display-1">Signup</v-card-title>
+  <v-card width="300px" outlined dark elevation="20">
     <v-card-text>
       <v-form>
         <v-text-field
@@ -8,18 +7,14 @@
           v-model="username"
           prepend-icon="mdi-account-circle"
           :rules="userRules"
-          color="orange darken-4"
           clearable
         ></v-text-field>
-
         <v-text-field
           label="E-mail"
           v-model="email"
           :rules="emailRules"
           prepend-icon="mdi-email"
-          color="orange darken-4"
         ></v-text-field>
-
         <v-text-field
           label="Password"
           v-model="userPassword"
@@ -28,18 +23,18 @@
           :rules="passwordRule"
           :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
           @click:append="showPassword = !showPassword"
-          color="orange darken-4"
           clearable
         ></v-text-field>
       </v-form>
     </v-card-text>
-    <v-card-actions>
+    <v-card-actions class="d-flex justify-center">
       <v-btn
-        color="orange darken-4"
-        height="35px"
+        height="50px"
+        class="button mt-n6"
+        color="transparent"
         x-large
-        rounded
         dark
+        elevation="10"
         @click="signup"
         >Sign Up</v-btn
       >
@@ -86,3 +81,10 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.button {
+  font-size: 20px;
+  font-weight: 600;
+}
+</style>

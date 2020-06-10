@@ -1,17 +1,17 @@
 <template>
-  <v-card width="300px" outlined>
-    <v-card-title class="display-1">Login</v-card-title>
+  <v-card width="300px" height="286px" dark outlined elevation="20">
     <v-card-text>
-      <v-form>
+      <v-form class="font-weight-black form_fonts">
         <v-text-field
-          color="orange darken-4"
+          prepend-icon="mdi-email"
+          full-width
           :label="errormsg"
           v-model="email"
-          prepend-icon="mdi-account-circle"
+          class="size"
           clearable
         ></v-text-field>
         <v-text-field
-          color="orange darken-4"
+          full-width
           label="Password"
           v-model="userPassword"
           :type="showPassword ? 'text' : 'password'"
@@ -25,12 +25,13 @@
     </v-card-text>
     <v-card-actions class="justify-center d-flex">
       <v-btn
-        height="35px"
-        color="orange darken-4"
+        elevation="10"
+        class="button"
+        height="50px"
+        color="transparent"
         @click="loginMethod"
-        x-large
-        rounded
         dark
+        x-large
         >Login</v-btn
       >
     </v-card-actions>
@@ -45,9 +46,9 @@ export default {
       errormsg: "Email",
       isActive: true,
       hasError: false,
-      email: "",
+      email: "marc@marc.es",
       showPassword: false,
-      userPassword: "",
+      userPassword: "1111111111",
       passwordRule: [
         v => !!v || "Password is required",
         v => v.length >= 10 || "Password must be more than 10 characters"
@@ -75,4 +76,10 @@ export default {
   }
 };
 </script>
-1
+
+<style lang="scss" scoped>
+.button {
+  font-size: 20px;
+  font-weight: 600;
+}
+</style>

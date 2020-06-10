@@ -1,33 +1,31 @@
 <template>
-  <v-container class="fill-height pt-0" fluid>
-    <v-row class="bg_auth">
+  <v-container class="pt-0" fluid>
+    <v-row>
       <v-col class="pa-0">
-        <v-card color="orange darken-4" dark>
+        <v-card color="deep-orange accent-4" class="appbar" dark>
           <v-card-title
             class="py-10 text-center justify-center display-4 font-weight-bold"
           >
             BR
             <v-icon class="ma-n3" size="110px">mdi-alpha-v-box</v-icon>ending
+            <v-icon size="120px">mdi-notebook</v-icon>
           </v-card-title>
           <v-tabs
             cols="2"
-            class="justify-center d-flex"
+            class="justify-end d-flex"
             v-model="tab"
             background-color="transparent"
           >
-            <v-tab
-              v-for="item in items"
-              :key="item"
-              class="display-1 font-weight-black"
-              >{{ item }}</v-tab
-            >
+            <v-tab v-for="(item, i) in items" :key="i" :class="item.class">{{
+              item.name
+            }}</v-tab>
           </v-tabs>
-          <v-tabs-items v-model="tab">
+          <v-tabs-items class="justify-end d-flex tabs bg_auth" v-model="tab">
             <v-tab-item>
-              <Login />
+              <Login class="tabs mr-10" />
             </v-tab-item>
             <v-tab-item>
-              <Signup />
+              <Signup class="tabs mr-10" />
             </v-tab-item>
           </v-tabs-items>
         </v-card>
@@ -44,7 +42,16 @@ export default {
   data() {
     return {
       tab: null,
-      items: ["Login", "Sign Up"]
+      items: [
+        {
+          name: "Login",
+          class: "display-1 font-weight-black"
+        },
+        {
+          name: "Sign In",
+          class: "display-1 font-weight-black mr-12"
+        }
+      ]
     };
   },
   components: {
@@ -55,20 +62,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-* {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-}
-.card {
-  margin: auto;
-}
-.basil {
-  background-color: rgba(230, 107, 25, 0.808) !important;
-}
-.basil--text {
-  color: #ffffff !important;
+.tabs {
+  background-color: transparent;
 }
 .bg_auth {
-  min-height: calc(100vh - 8vh);
+  background-image: url("../assets/comerciales.jpg");
+  background-size: cover;
+  min-height: calc(100vh - 26vh);
 }
 </style>

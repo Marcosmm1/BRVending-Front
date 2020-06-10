@@ -1,5 +1,24 @@
 <template>
-  <v-footer height="100px" color="orange darken-4">FOOTER</v-footer>
+  <v-footer class="mt-n3" height="110px" color="deep-orange accent-4 headline">
+    <v-row justify="center" no-gutters>
+      <!-- <v-btn v-for="link in links" :key="link" color="white" text rounded class="my-2">{{ link }}</v-btn> -->
+      <v-col
+        class="deep-orange accent-4 headline text-center white--text"
+        cols="12"
+      >
+        <strong>
+          @BR
+          <v-icon class="ml-n2 mr-n1 mb-1" size="28px" dark
+            >mdi-alpha-v-box</v-icon
+          >ending, La app de los comerciales
+        </strong>
+      </v-col>
+      <span class="github">
+        @adrianrdguez
+        <v-icon x-large dark>mdi-github</v-icon>@marcosmm1
+      </span>
+    </v-row>
+  </v-footer>
 </template>
 
 <script>
@@ -8,4 +27,11 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.github {
+  color: white;
+  font-size: 20px;
+  margin-top: 10px;
+  font-weight: 600;
+}
+</style>

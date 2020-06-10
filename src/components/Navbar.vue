@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-app-bar app height="120px" color="orange darken-4" dark>
+    <v-app-bar app height="120px" color="deep-orange accent-4" dark>
       <v-toolbar-title id="title">
         BR
         <span class="icon-title">
