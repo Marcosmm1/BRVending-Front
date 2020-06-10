@@ -1,23 +1,28 @@
 <template>
-  <div id="app" class="container">
-    <v-app id="inspire">
-      <Navbar />
-      <v-content>
-        <router-view />
-      </v-content>
-    </v-app>
-  </div>
+  <v-app id="app">
+    <component id="background" :is="layout">
+      <router-view />
+    </component>
+  </v-app>
 </template>
 
 <script>
-import Navbar from "./components/Navbar.vue";
+const defaultLayout = "default";
 
 export default {
-  name: "home",
-  components: {
-    Navbar
+  name: "App",
+  computed: {
+    layout() {
+      return (this.$route.meta.layout || defaultLayout) + "-layout";
+    }
   },
-
   data: () => ({})
 };
 </script>
+
+<style>
+* {
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+</style>

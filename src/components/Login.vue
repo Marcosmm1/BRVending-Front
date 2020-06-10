@@ -1,37 +1,40 @@
 <template>
-  <div>
-    <v-card width="400px" height="390px" class="card">
-      <v-card-title class="pb-0 mb-10">
-        <h1>Login</h1>
-      </v-card-title>
-      <v-card-text>
-        <v-form class="mb-10">
-          <v-text-field
-            class="mb-10"
-            :label="errormsg"
-            v-model="email"
-            prepend-icon="mdi-account-circle"
-          ></v-text-field>
-          <v-text-field
-            class="mb-10"
-            label="Password"
-            v-model="userPassword"
-            :type="showPassword ? 'text' : 'password'"
-            prepend-icon="mdi-lock"
-            :rules="passwordRule"
-            :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-            @click:append="showPassword = !showPassword"
-          ></v-text-field>
-        </v-form>
-      </v-card-text>
-      <v-divider></v-divider>
-      <v-card-actions>
-        <v-btn class="loginbut" color="orange" x-large @click="loginMethod"
-          >Login</v-btn
-        >
-      </v-card-actions>
-    </v-card>
-  </div>
+  <v-card width="300px" outlined>
+    <v-card-title class="display-1">Login</v-card-title>
+    <v-card-text>
+      <v-form>
+        <v-text-field
+          color="orange darken-4"
+          :label="errormsg"
+          v-model="email"
+          prepend-icon="mdi-account-circle"
+          clearable
+        ></v-text-field>
+        <v-text-field
+          color="orange darken-4"
+          label="Password"
+          v-model="userPassword"
+          :type="showPassword ? 'text' : 'password'"
+          prepend-icon="mdi-lock"
+          :rules="passwordRule"
+          :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+          @click:append="showPassword = !showPassword"
+          clearable
+        ></v-text-field>
+      </v-form>
+    </v-card-text>
+    <v-card-actions class="justify-center d-flex">
+      <v-btn
+        height="35px"
+        color="orange darken-4"
+        @click="loginMethod"
+        x-large
+        rounded
+        dark
+        >Login</v-btn
+      >
+    </v-card-actions>
+  </v-card>
 </template>
 
 <script>
@@ -72,14 +75,4 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.card {
-  margin: auto;
-  margin-top: 20%;
-}
-
-.loginbut {
-  text-align: center;
-}
-</style>
+1

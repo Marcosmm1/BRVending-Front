@@ -15,6 +15,9 @@ const routes = [
   {
     path: "/",
     name: "Auth",
+    meta: {
+      layout: "no-navbar"
+    },
     component: Auth
   },
   {

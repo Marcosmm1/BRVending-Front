@@ -1,16 +1,15 @@
 <template>
-  <v-card width="400px" height="460px" class="cardsign">
-    <v-card-title class="pb-0 mb-10">
-      <h1>Signup</h1>
-    </v-card-title>
+  <v-card width="300px" outlined>
+    <v-card-title class="display-1">Signup</v-card-title>
     <v-card-text>
       <v-form>
         <v-text-field
-          class="mb-6"
           label="Username"
           v-model="username"
           prepend-icon="mdi-account-circle"
           :rules="userRules"
+          color="orange darken-4"
+          clearable
         ></v-text-field>
 
         <v-text-field
@@ -18,11 +17,10 @@
           v-model="email"
           :rules="emailRules"
           prepend-icon="mdi-email"
-          class="mb-10"
+          color="orange darken-4"
         ></v-text-field>
 
         <v-text-field
-          class="mb-6"
           label="Password"
           v-model="userPassword"
           :type="showPassword ? 'text' : 'password'"
@@ -30,12 +28,19 @@
           :rules="passwordRule"
           :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
           @click:append="showPassword = !showPassword"
+          color="orange darken-4"
+          clearable
         ></v-text-field>
       </v-form>
     </v-card-text>
-    <v-divider></v-divider>
     <v-card-actions>
-      <v-btn class="signbut" color="orange" x-large @click="signup"
+      <v-btn
+        color="orange darken-4"
+        height="35px"
+        x-large
+        rounded
+        dark
+        @click="signup"
         >Sign Up</v-btn
       >
     </v-card-actions>
@@ -81,10 +86,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.cardsign {
-  margin: auto;
-  margin-top: 20%;
-}
-</style>
