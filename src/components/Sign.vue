@@ -23,7 +23,6 @@
           :rules="passwordRule"
           :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
           @click:append="showPassword = !showPassword"
-          clearable
         ></v-text-field>
       </v-form>
     </v-card-text>

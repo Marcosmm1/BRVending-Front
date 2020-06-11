@@ -14,8 +14,11 @@
         </strong>
       </v-col>
       <span class="github">
-        @adrianrdguez
-        <v-icon x-large dark>mdi-github</v-icon>@marcosmm1
+        <a class="gitacc" href="https://github.com/adrianrdguez"
+          >@adrianrdguez</a
+        >
+        <v-icon x-large dark class="mx-4">mdi-github</v-icon>
+        <a class="gitacc" href="https://github.com/marcosmm1">@marcosmm1</a>
       </span>
     </v-row>
   </v-footer>
@@ -33,5 +36,14 @@ export default {
   font-size: 20px;
   margin-top: 10px;
   font-weight: 600;
+}
+.gitacc {
+  color: white;
+  margin-top: 15px;
+}
+a:link,
+a:visited,
+a:active {
+  text-decoration: none;
 }
 </style>
