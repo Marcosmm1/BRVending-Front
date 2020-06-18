@@ -16,9 +16,9 @@
             v-model="tab"
             background-color="transparent"
           >
-            <v-tab v-for="(item, i) in items" :key="i" :class="item.class">{{
-              item.name
-            }}</v-tab>
+            <v-tab v-for="(item, i) in items" :key="i" :class="item.class">
+              {{ item.name }}
+            </v-tab>
           </v-tabs>
           <v-tabs-items class="justify-end d-flex tabs bg_auth" v-model="tab">
             <v-tab-item>
@@ -35,8 +35,8 @@
 </template>
 
 <script>
-import Login from "../components/Login.vue";
-import Signup from "../components/Sign.vue";
+import Login from "@/components/Login.vue";
+import Signup from "@/components/Sign.vue";
 
 export default {
   data() {
@@ -63,7 +63,7 @@ export default {
 
 <style lang="scss" scoped>
 .tabs {
-  background-color: transparent;
+  background-color: hsla(0, 100%, 1%, 0.5);
 }
 .bg_auth {
   background-image: url("../assets/comerciales.jpg");

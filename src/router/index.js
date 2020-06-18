@@ -1,13 +1,5 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
-import Auth from "../views/Auth.vue";
-import Clients from "../views/ShowClients.vue";
-import ShowClient from "../views/ShowClient.vue";
-import VentasClients from "../views/VentasClients.vue";
-import Products from "../views/ShowProducts.vue";
-import ShowOrders from "../views/ShowOrders.vue";
-// import ShowOrder from "../views/ShowOrder.vue";
 
 Vue.use(VueRouter);
 
@@ -18,84 +10,60 @@ const routes = [
     meta: {
       layout: "no-navbar"
     },
-    component: Auth
+    component: () => import(/* webpackChunkName: "Auth" */ "../views/Auth")
   },
   {
     path: "/home",
     name: "Home",
-    component: Home,
-    beforeEnter(to, from, next) {
-      if (!localStorage.getItem("token")) {
-        next({
-          name: "Auth"
-        });
-      }
-      next();
+    component: () => import(/* webpackChunkName: "Home" */ "../views/Home"),
+
+    meta: {
+      requiresAuth: true
     }
   },
   {
     path: "/clients",
     name: "ClientsInfo",
-    component: Clients,
-    beforeEnter(to, from, next) {
-      if (!localStorage.getItem("token")) {
-        next({
-          name: "Auth"
-        });
-      }
-      next();
+    component: () =>
+      import(/* webpackChunkName: "Clients" */ "../views/ShowClients"),
+    meta: {
+      requiresAuth: true
     }
   },
   {
     path: "/ventas",
     name: "VentasClients",
-    component: VentasClients,
-    beforeEnter(to, from, next) {
-      if (!localStorage.getItem("token")) {
-        next({
-          name: "Auth"
-        });
-      }
-      next();
+    component: () =>
+      import(/* webpackChunkName: "VentasClients" */ "../views/VentasClients"),
+    meta: {
+      requiresAuth: true
     }
   },
   {
     path: "/ShowProducts/:clientId",
     name: "ShowProducts",
-    component: Products,
-    beforeEnter(to, from, next) {
-      if (!localStorage.getItem("token")) {
-        next({
-          name: "Auth"
-        });
-      }
-      next();
+    component: () =>
+      import(/* webpackChunkName: "ShowProducts" */ "../views/ShowProducts"),
+    meta: {
+      requiresAuth: true
     }
   },
   {
     path: "/clients/:client",
     name: "Clients",
-    component: ShowClient,
-    beforeEnter(to, from, next) {
-      if (!localStorage.getItem("token")) {
-        next({
-          name: "Auth"
-        });
-      }
-      next();
+    component: () =>
+      import(/* webpackChunkName: "ShowClient" */ "../views/ShowClient"),
+    meta: {
+      requiresAuth: true
     }
   },
   {
     path: "/ShowOrders",
     name: "ShowOrders",
-    component: ShowOrders,
-    beforeEnter(to, from, next) {
-      if (!localStorage.getItem("token")) {
-        next({
-          name: "Auth"
-        });
-      }
-      next();
+    component: () =>
+      import(/* webpackChunkName: "ShowOrders" */ "../views/ShowOrders"),
+    meta: {
+      requiresAuth: true
     }
   }
   // {
@@ -119,4 +87,20 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 });
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (!localStorage.token) {
+      next({
+        name: "Auth",
+        query: { redirect: to.fullPath }
+      });
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
+});
+
 export default router;

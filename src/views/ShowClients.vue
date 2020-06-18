@@ -1,14 +1,14 @@
 <template>
   <v-container>
     <v-breadcrumbs :items="items" large></v-breadcrumbs>
-
     <ClientShow v-for="(clients, i) in clients" :key="i" :client="clients" />
   </v-container>
 </template>
 
 <script>
-import ApiService from "../services/api.js";
-import ClientShow from "../components/Clients";
+import ApiService from "@/services/api.js";
+import ClientShow from "@/components/Clients";
+
 export default {
   data() {
     return {
@@ -41,5 +41,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped></style>

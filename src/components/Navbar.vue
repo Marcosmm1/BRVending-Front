@@ -1,24 +1,20 @@
 <template>
-  <div>
-    <v-app-bar app height="120px" color="deep-orange accent-4" dark>
-      <v-toolbar-title id="title">
-        BR
-        <span class="icon-title">
-          <v-icon class="icon" size="80px">mdi-alpha-v-box</v-icon>
-        </span>
-        ending
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn icon @click="logout">
-        <v-icon size="60px" class="mr-4">mdi-exit-to-app</v-icon>
-      </v-btn>
-    </v-app-bar>
-  </div>
+  <v-app-bar app height="110px" color="deep-orange accent-4" dark>
+    <v-toolbar-title class="display-3 font-weight-medium pb-1 mt-4">
+      BR
+      <v-icon class="mr-n2 ml-n5 mb-2" size="80px">mdi-alpha-v-box</v-icon
+      >ending
+    </v-toolbar-title>
+    <v-spacer></v-spacer>
+    <v-btn icon @click="logout">
+      <v-icon size="60px" class="mr-4">mdi-exit-to-app</v-icon>
+    </v-btn>
+  </v-app-bar>
 </template>
 
 <script>
 export default {
-  name: "navbar",
+  name: "Navbar",
   methods: {
     logout() {
       localStorage.clear();
@@ -27,15 +23,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-#title {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 60px;
-  line-height: 120px;
-}
-.icon-title {
-  margin: 0 -10px;
-}
-</style>

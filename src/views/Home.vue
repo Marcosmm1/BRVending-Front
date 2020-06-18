@@ -1,12 +1,17 @@
 <template>
-  <div class="d-flex justify-space-around">
-    <router-link v-for="(icon, i) in icons" :key="i" :to="icon.to">
-      <HomeButton :data="icon" />
-    </router-link>
-  </div>
+  <v-container>
+    <v-row>
+      <v-col class="d-flex justify-space-around">
+        <router-link v-for="(icon, i) in icons" :key="i" :to="icon.to">
+          <HomeButton :data="icon" />
+        </router-link>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 <script>
-import HomeButton from "../components/HomeButton.vue";
+import HomeButton from "@/components/HomeButton.vue";
+
 export default {
   name: "home",
   data() {
@@ -36,4 +41,10 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped></style>
+<style lang="scss" scoped>
+a:link,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+</style>
